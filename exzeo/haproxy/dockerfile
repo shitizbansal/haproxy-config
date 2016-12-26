@@ -1,0 +1,15 @@
+#This defines the params to be taken to setup the containers for apache
+FROM  ubuntu:14.04
+WORKDIR /home/
+
+#Installing packages 
+RUN  apt-get update && apt-get install -y iputils-ping traceroute tcpdump vim curl
+
+#This will keep the running in the UP state 
+CMD tail -f /dev/null
+
+#Exposing Ports
+EXPOSE 80 22
+
+#Copying the Haproxy which will install and put the basic config for the apache2 servers
+COPY haproxy.sh /home/

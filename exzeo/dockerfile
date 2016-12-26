@@ -1,0 +1,13 @@
+#This defines the params to be taken to setup the containers for apache
+FROM  ubuntu
+WORKDIR /home/
+
+#Installing the packages necessary 
+RUN  apt-get update && apt-get install -y apache2 iputils-ping traceroute tcpdump vim curl
+
+#Running the services 
+ENTRYPOINT ["apache2ctl"]
+CMD ["-D","FOREGROUND"]
+
+#Exposing Ports
+EXPOSE 80 22

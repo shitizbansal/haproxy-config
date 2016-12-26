@@ -1,0 +1,28 @@
+#This contains the loadbalancer parameters and the dockerfile to build from.
+lb:
+ build: haproxy/
+ hostname: lb
+ domainname: test.com
+
+#Likning all the containers
+ links:
+ - s1
+ - s2
+
+#Mapping port of the HAproxy LB to the dockerhost. Any request to the dockerhost will be forwarded to the LB.
+ ports: 
+ - 80:80
+
+#Configuration for the Apache servers s1 and s2 
+
+s1:
+ build: .
+ hostname: s1
+ domainname: test.com
+
+s2:
+ build: .
+ hostname: s2
+ domainname: test.com
+ 
+   
