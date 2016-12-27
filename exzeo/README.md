@@ -5,12 +5,5 @@ This page explains the design of the HAproxy loadbalancer configuration and the 
 
 How to run the scripts ?
 
-- First run the docker-init.sh in the exzeo folder. 
-- Note down the ip addresses of the apache servers.
-- Execute the command 'docker exec -it <container id of the haproxy lb> /bin/bash'
+- First run the docker-init.sh 
 - Then run the haproxy script inside the haproxy container.
-
-What has not been done ?
-- DNS resolution.  Reason being i need some more time.
-- Reverse Proxy .  I haven't implemented it earlier and need to study on this but can be achievable. 
-
